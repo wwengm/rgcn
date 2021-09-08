@@ -2,7 +2,6 @@ import os
 import math
 import numpy as np
 import torch
-from tqdm import tqdm 
 import torch.nn.functional as F
 
 
@@ -86,7 +85,7 @@ def calc_mrr(embedding, w, test_triplets, all_triplets, hits=[]):
         head_relation_triplets = all_triplets[:, :2]
         tail_relation_triplets = torch.stack((all_triplets[:, 2], all_triplets[:, 1])).transpose(0, 1)
 
-        for test_triplet in tqdm(test_triplets):
+        for test_triplet in test_triplets:
 
             # Perturb object
             subject = test_triplet[0]
